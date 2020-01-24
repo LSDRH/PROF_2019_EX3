@@ -35,4 +35,17 @@ public class smokeTest {
 		String s = formatter.format(correctTime);
 		assertEquals(s, my.nextTime(seconds, time));
 	}
+	
+	//EXAM EXERCISE 3: MOCKING
+	@Test
+	public void methodIsInvokedOnce() {
+		long seconds = 1;
+		LocalDateTime time = LocalDateTime.now();
+		Time t = mock(Time.class);
+		MyClass m = new MyClass(t);
+		m.nextTime(seconds, time);
+		
+		verify(t, times(1));
+		
+	}
 }
